@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ecomm</title>
+    <style>
+        tr,td,table{
+                border: 1px solid gray;
+                border-collapse: collapse;
+                padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>E commerce Sederhana</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>Harga</td>
+                    <td>Gambar</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <h3></h3>
+        <h4></h4>
+        <table id='output'></table>
+        <p id="checkout"></p>
+        <p id="timer"></p>
+        <p id="bayar"></p>
+    </center>
+</body>
+<script>
+    class Toko{
+        constructor(a,b,c){
+            this.nama=a,
+            this.harga=b,
+            this.gambar=c
+        }
+    }
+    var listProduk = [
+        new Toko('Kangkung', 10000, '../day11/kangkung.jpg'),
+        new Toko('Kuaci', 13000, 'http://gumindo.com/assets/img/products/rebo/new/kuacirebo-original-300gr.jpg'),
+        new Toko('Lays', 8000, 'https://target.scene7.com/is/image/Target/GUEST_52511ec3-b1d5-49e5-8b3e-7e75c6309c8b?wid=488&hei=488&fmt=pjpeg')
+    ]
+    var cart=[
+
+    ]
+    const Printdata=(data)=>{
+        var output = ''
+        data.forEach((val,index) => {
+            output += `<tr>
+                            <td>${index+1}</td>
+                            <td>${val.nama}</td>
+                            <td>${val.harga}</td>
+                            <td><img src = ${val.gambar} height="120px" width="110px"/></td>
+                            <td><button onclick="btnAddChart(${index})"> add to chart</button></td>
+                        </tr>`
+        });
+        document.getElementsByTagName('tbody')[0].innerHTML=output
+    }
+    Printdata(listProduk)
+</script>
+</html>
